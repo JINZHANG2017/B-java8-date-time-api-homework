@@ -13,28 +13,16 @@ import java.time.temporal.ChronoUnit;
  */
 public class Practice1 {
 
+    public static final int LABOR_DAY_MONTH = 5;
+    public static final int LABOR_DAY_DATE = 1;
+
     public static long getDaysBetweenNextLaborDay(LocalDate date) {
-//        int month = date.getMonthValue();
-////    int day=date.getDayOfMonth();
-//        int year = date.getYear();
-////        date.isAfter()
-//        if (month >= 5) {
-//            // TODO 使用现有api
-//            year += 1;
-//        }
-////        if(date.is)
-//        LocalDate nextLaborDay = LocalDate.of(year, 5, 1);
-//        long re = date.until(nextLaborDay, ChronoUnit.DAYS);
-//        long between = ChronoUnit.DAYS.between(date, nextLaborDay);
-//        return re;
-        LocalDate thisYearLaborDay= LocalDate.of(date.getYear(),5,1);
+        LocalDate thisYearLaborDay= LocalDate.of(date.getYear(), LABOR_DAY_MONTH, LABOR_DAY_DATE);
         if(date.isAfter(thisYearLaborDay)){
             LocalDate nextYearLaborDay=thisYearLaborDay.plusYears(1);
             return ChronoUnit.DAYS.between(date,nextYearLaborDay);
         }else{
             return ChronoUnit.DAYS.between(date,thisYearLaborDay);
         }
-
-
     }
 }
