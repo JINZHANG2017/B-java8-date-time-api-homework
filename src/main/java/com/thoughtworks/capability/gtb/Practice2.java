@@ -12,11 +12,12 @@ import java.time.LocalDate;
 public class Practice2 {
 
     public static LocalDate getNextWorkDate(LocalDate date) {
-        int dayOfWeek = date.getDayOfWeek().getValue();
+        DayOfWeek dayOfWeek = date.getDayOfWeek();
         int gap = 1;
-        if (dayOfWeek == 5) {
+        // TODO 直接用枚举
+        if (dayOfWeek == DayOfWeek.FRIDAY) {
             gap = 3;
-        } else if (dayOfWeek == 6) {
+        } else if (dayOfWeek == DayOfWeek.SATURDAY) {
             gap = 2;
         }
         return date.plusDays(gap);
